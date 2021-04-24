@@ -1,0 +1,39 @@
+<form [formGroup]="formulario" class="row">
+    <div class="col-md-5">
+        <select class="form-select form-select-sm" formControlName="idOferta">
+            <option selected>Seleccionar Oferta</option>
+            <option [value]="row.versions[0].id" *ngFor="let row of listOffers">{{row.versions[0].name}}</option>
+        </select>
+    </div>
+    <div class="col-md-7">
+        <div class="container card">
+            <div class="card-body">
+                <div class="mb-12 row">
+                    <label for="staticEmail" class="col-sm-5 col-form-label">ID Oferta:</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="inputPassword" [value]="selectOffert.id" disabled>
+                    </div>
+                </div>
+                <hr>
+                <div class="mb-12 row">
+                    <label for="staticEmail" class="col-sm-5 col-form-label">Nomber:</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="inputPassword" [value]="selectOffert.name" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <app-characteristics [characteristics]="selectOffert.characteristics"></app-characteristics>
+            </div>
+            <div class="col-md-6">
+                <app-prices [productOfferingPrices]="selectOffert.productOfferingPrices"></app-prices>
+            </div>
+        </div>
+    </div>
+
+</form>
